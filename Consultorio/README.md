@@ -4,8 +4,10 @@ Requiere un archivo .env con <br/>
 
 
 <h2>Ejecución:</h2>
-npm install<br/>
-npm start<br/>
+<ul>
+    <li>npm install</li>
+    <li>npm start</li>
+</ul>
 
 
 <h2>Invocación:</h2>
