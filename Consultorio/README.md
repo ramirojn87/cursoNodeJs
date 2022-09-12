@@ -3,9 +3,9 @@ Requiere un archivo .env con <br/>
     PORT = 5000<br/>
 
 
-Ejecución:
-npm install
-npm start
+Ejecución:<br/>
+npm install<br/>
+npm start<br/>
 
 
 Invocación:
