@@ -1,11 +1,16 @@
 Trabajo práctico para el curso de NodeJS<br/>
 Requiere un archivo .env con <br/>
     PORT = 5000<br/>
+    DB = "consultorio_dev"<br/>
+    DB_USER = "postgres"<br/>
+    DB_PASSWORD = "1234"<br/>
 <br/>
 <br/>
 
 Ejecución:<br/>
 - npm install<br/>
+- npm run db:create<br/>
+- npm run db:seed<br/>
 - npm start<br/>
 <br/>
 <br/>
