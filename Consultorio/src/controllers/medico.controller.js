@@ -1,29 +1,63 @@
-module.exports = {
+const models = require("../database/models/index")
+const errors = require("../const/errors")
 
-    list: async (req, res) => {
+module.exports = {
+    
+    list: async (req, res, next) => {
         try {
-            console.log('list en medico')
-            res.json({'mensaje': 'list en medico'});
+            const medicos = await models.medico.findAll()
+            res.json({
+                success: true,
+                data: {
+                    medicos: medicos
+                }
+            });
         } catch (e) {
-            console.log(e);
+            return next(e);
         }
     },
     
-    get: async (req, res) => {
+    get: async (req, res, next) => {
         try {
-            console.log('get en medico, id: ' + req.params.id)
-            res.json({'mensaje': 'get en medico, id: ' + req.params.id});
+            const medico = await models.medico.findOne({
+                where: {id: req.params.id},
+                include: [{
+                        model: models.medico_hospital,
+                        include: [{
+                            model: models.hospital
+                        }]
+                    },
+                    {
+                        model: models.especialidad
+                    }]
+            })
+            if (!medico){ return next(errors.MedicoInexistente)}
+            res.json({
+                success: true,
+                data: {
+                    medico: medico
+                }
+            });
         } catch (e) {
-            console.log(e);
+            return next(e);
         }
     },
 
-    add: async (req, res) => {
+    add: async (req, res, next) => {
         try {
-            console.log('add en medico')
-            res.json({'mensaje': 'add en medico, nombre: '+req.body.nombre});
+            const oldMedico = await models.medico.findOne({
+                where: {email: req.body.email}
+            })
+            if (oldMedico) { return next(errors.MedicoEmailYaRegistrado)}
+            const medico = await models.medico.create(req.body)
+            res.json({
+                success: true,
+                data: {
+                    medico: medico
+                }
+            });
         } catch (e) {
-            console.log(e);
+            return next(e);
         }
     }
 
