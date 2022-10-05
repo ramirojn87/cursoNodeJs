@@ -4,6 +4,7 @@ Requiere un archivo .env con <br/>
     DB = "consultorio_dev"<br/>
     DB_USER = "postgres"<br/>
     DB_PASSWORD = "1234"<br/>
+    JWT_SECRET = "r4m1r0" <br />
 <br/>
 <br/>
 

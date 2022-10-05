@@ -4,6 +4,7 @@ let add = Joi.object({
     nombre: Joi.string().required(),
     apellido: Joi.string().required(),
     email: Joi.string().email().required(),
+    password: Joi.string().required(),
     especialidadId: Joi.number().optional()
 })
 

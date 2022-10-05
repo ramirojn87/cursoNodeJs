@@ -1,6 +1,7 @@
 'use strict';
 
 const models = require("../models/index");
+const bcrypt = require("bcryptjs");
 
 module.exports = {
     up: function (queryInterface, Sequelize) {
@@ -13,7 +14,7 @@ module.exports = {
                     nombre: "Jorge",
                     apellido: "Diaz",
                     email: "jorge.diaz@mail.com",
-                    password: "123456",
+                    password: bcrypt.hashSync("123456"),
                     especialidadId: "1"
                 }
             }),
@@ -25,7 +26,7 @@ module.exports = {
                     nombre: "Sandra",
                     apellido: "Rodriguez",
                     email: "sandra.rodriguez@mail.com",
-                    password: "123456",
+                    password: bcrypt.hashSync("123456"),
                     especialidadId: "3"
                 }
             }),
@@ -37,7 +38,7 @@ module.exports = {
                     nombre: "Natalia",
                     apellido: "Sanchez",
                     email: "natalia.sanchez@mail.com",
-                    password: "123456",
+                    password: bcrypt.hashSync("123456"),
                     especialidadId: "3"
                 }
             }),
@@ -49,7 +50,7 @@ module.exports = {
                     nombre: "Pablo",
                     apellido: "Gutierrez",
                     email: "pablo.gutierrez@mail.com",
-                    password: "123456",
+                    password: bcrypt.hashSync("123456"),
                     especialidadId: "2"
                 }
             })

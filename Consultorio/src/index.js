@@ -1,6 +1,6 @@
 const express = require('express');
-const globalConstants = require('./const/globalConstants.js');
-const routerConfig = require('./routes/index.routes.js');
+const globalConstants = require('./const/globalConstants');
+const routerConfig = require('./routes/index.routes');
 const logger = require('morgan');
 
 let errorHandler = require('./middlewares/error')
@@ -13,7 +13,8 @@ const configuracionApi = (app) =>{
 }
 
 const configuracionRouter = (app) =>{
-    app.use('/api/', routerConfig.rutas_init()); 
+    app.use('/api/', routerConfig.rutas_init());
+    app.use('/', routerConfig.rutas_auth());
     app.use(function (req, res, next) { 
         next(createError(404)) // si no se encuentra la ruta, se envia un error 404
       })

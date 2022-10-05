@@ -7,7 +7,7 @@ module.exports = {
     "database": globalConstants.DB,
     "host": "127.0.0.1",
     "dialect": "postgres",
-    "logging": true
+    "logging": false
   },
   "test": {
     "username": "root",

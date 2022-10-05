@@ -1,4 +1,5 @@
 const models = require("../database/models/index")
+const errors = require("../const/errors")
 
 module.exports = {
 
@@ -18,7 +19,7 @@ module.exports = {
     
     get: async (req, res, next) => {
         try {
-            const especialidad = await models.especialidad.get(req.params.id)
+            const especialidad = await models.especialidad.findByPk(req.params.id)
             if (!especialidad){ return next(errors.EspecialidadInexistente)}
             res.json({
                 success: true,

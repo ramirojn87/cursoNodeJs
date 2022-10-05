@@ -23,12 +23,22 @@ module.exports = {
 
     "MedicoInexistente": {
         code: 4002,
-        message: 'El médico consultado es inexistente'
+        message: 'El médico no existe'
     },
 
     "MedicoEmailYaRegistrado": {
         code: 6002,
         message: 'Otro médico ya se encuentra registrado con el email ingresado'
+    },
+
+    "MedicoLoginInvalido": {
+        code: 7002,
+        message: 'Email o contraseña incorrectos'
+    },
+
+    "MedicoNoAutorizado": {
+        code: 8002,
+        message: 'Médico no autorizado'
     },
 
     "EspecialidadInexistente": {
@@ -39,5 +49,15 @@ module.exports = {
     "EspecialidadYaRegistrada": {
         code: 6003,
         message: 'Ya se encuentra cargada una especialidad con ese nombre'
+    },
+    
+    "SesionExpirada": {
+        code: 1004,
+        message: 'La sesión expiró'
+    },
+    
+    "TokenInvalido": {
+        code: 2004,
+        message: 'Token inválido'
     }
 }

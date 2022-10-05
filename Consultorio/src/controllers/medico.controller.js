@@ -1,3 +1,5 @@
+const bcrypt = require("bcryptjs")
+
 const models = require("../database/models/index")
 const errors = require("../const/errors")
 
@@ -49,6 +51,7 @@ module.exports = {
                 where: {email: req.body.email}
             })
             if (oldMedico) { return next(errors.MedicoEmailYaRegistrado)}
+            req.body.password = bcrypt.hashSync(req.body.password)
             const medico = await models.medico.create(req.body)
             res.json({
                 success: true,
